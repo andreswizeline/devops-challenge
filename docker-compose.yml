@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  api:
+    build: ./packages/api
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./packages/api:/usr/src/app
+    environment:
+      - NODE_ENV=development
+
+  admin:
+    build: ./packages/admin
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./packages/admin:/usr/src/app
+    environment:
+      - NODE_ENV=development
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - api
+      - admin

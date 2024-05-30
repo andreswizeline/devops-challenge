@@ -51,3 +51,17 @@ Please ensure your final submission is a working version that includes:
 
 ### Support
 Throughout the challenge, you may encounter errors or have questions. You are encouraged to email bzeiger@sweatworks.net for any assistance, be it clarification on requirements or troubleshooting unexpected issues.
+
+
+
+
+### Solution:
+
+
+To address the problem, the following steps were taken:
+
+- **Docker Setup**: Dockerfiles were created within each React (admin) and Express (API) application to containerize them for deployment flexibility and consistency.
+
+- **Nginx Configuration**: A separate folder named `nginx` was set up to configure port 80 for both applications. This ensures efficient routing and access to the services.
+
+- **Docker Compose Configuration**: A Docker Compose file was created, incorporating three services - admin, API, and Nginx - for streamlined local development. This setup allows for easy orchestration and management of the interconnected components during development phases.

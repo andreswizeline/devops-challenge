@@ -60,8 +60,12 @@ Throughout the challenge, you may encounter errors or have questions. You are en
 
 To address the problem, the following steps were taken:
 
-- **Docker Setup**: Dockerfiles were created within each React (admin) and Express (API) application to containerize them for deployment flexibility and consistency.
+- **Docker Setup**:: Dockerfiles were created for each application—React (admin) and Express (API)—to containerize them. This ensures deployment flexibility and consistency across different environments.
 
-- **Nginx Configuration**: A separate folder named `nginx` was set up to configure port 80 for both applications. This ensures efficient routing and access to the services.
+- **Nginx Configuration**: An nginx folder was set up to configure Nginx to serve both applications on port 80. This enables efficient routing and access to the services.
 
-- **Docker Compose Configuration**: A Docker Compose file was created, incorporating three services - admin, API, and Nginx - for streamlined local development. This setup allows for easy orchestration and management of the interconnected components during development phases.
+- **Docker Compose Configuration**: A Docker Compose file was created to manage three services: admin, API, and Nginx. This setup facilitates streamlined local development, allowing for easy orchestration and management of the interconnected components, you can execute your local environment with docker-compose up --build.
+
+- **Terraform**: A Terraform folder was created to define the infrastructure as code. It includes services, VPC, S3 Buckets, CloudFront, and ECS Cluster configurations.
+
+- **CI/CD**: A .github folder was created with configuration files for deploying to different environments. Each file outlines the steps for continuous integration and deployment, ensuring smooth and automated workflows.

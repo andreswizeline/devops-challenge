@@ -1,21 +1,42 @@
 version: '3.8'
 
 services:
+  database:
+    build:
+      context: .
+      dockerfile: packages/database/Dockerfile
+    volumes:
+      - ./packages/database:/usr/src/app/database
+      - ./pnpm-workspace.yaml:/usr/src/app/pnpm-workspace.yaml
+      - ./pnpm-lock.yaml:/usr/src/app/pnpm-lock.yaml
+      - ./tsconfig.base.json:/usr/src/app/tsconfig.base.json
+    environment:
+      - NODE_ENV=development
+
   api:
-    build: ./packages/api
+    build:
+      context: .
+      dockerfile: packages/api/Dockerfile
     ports:
       - "5000:5000"
     volumes:
-      - ./packages/api:/usr/src/app
+      - ./packages/api:/usr/src/app/api
+      - ./pnpm-workspace.yaml:/usr/src/app/pnpm-workspace.yaml
+      - ./pnpm-lock.yaml:/usr/src/app/pnpm-lock.yaml
+      - ./tsconfig.base.json:/usr/src/app/tsconfig.base.json
     environment:
       - NODE_ENV=development
 
   admin:
-    build: ./packages/admin
+    build:
+      context: .
+      dockerfile: packages/admin/Dockerfile
     ports:
       - "3000:3000"
     volumes:
-      - ./packages/admin:/usr/src/app
+      - ./packages/admin:/usr/src/app/admin
+      - ./pnpm-workspace.yaml:/usr/src/app/pnpm-workspace.yaml
+      - ./pnpm-lock.yaml:/usr/src/app/pnpm-lock.yaml
     environment:
       - NODE_ENV=development
 

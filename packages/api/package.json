@@ -5,13 +5,14 @@
   "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index.ts"
+    "start": "nodemon src/index.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@aws-sdk/client-s3": "^3.540.0",
     "@aws-sdk/s3-request-presigner": "^3.556.0",
+    "@dc/database": "workspace:*",
     "body-parser": "^1.20.2",
     "express": "^4.19.2",
     "morgan": "^1.10.0"
